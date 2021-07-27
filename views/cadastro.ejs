@@ -7,6 +7,8 @@
   <title>Document</title>
 </head>
 <body>
+  <h1>Cadastre-se</h1>
+  <h4>Crie uma conta rápido e fácil!</h4>
   <form action="/cadastro" method="POST">
     <label for="nome">Nome</label>
     <input type="text" name="nome" id="nome" placeholder="Digite seu nome">
@@ -17,12 +19,12 @@
     <label for="senha">Senha</label>
     <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
 
-    <label for="tema">Tema</label>
-    <select name="tema" id="tema">
-      <option disabled selected>Escolha um tema</option>
-      <option value="dark-mode">Tema Dark</option>
-      <option value="light-mode">Tema Light</option>
-    </select>
+    <div>
+      <label for="tema">Tema Dark</label>
+      <input type="radio" name="tema" id="tema" value="dark-mode" checked>
+      <label for="tema">Tema Light</label>
+      <input type="radio" name="tema" id="tema" value="light-mode">
+    </div>
 
     <button>Enviar</button>
   </form>

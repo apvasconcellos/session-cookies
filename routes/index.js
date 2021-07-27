@@ -2,16 +2,15 @@ const express = require('express');
 const LoginController = require('../controllers/LoginController');
 const verificarUsuarioLogado = require('../middlewares/verificarUsuarioLogado');
 const router = express.Router();
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
   let usuario;
   let tema = req.cookies.tema ? req.cookies.tema : "light-mode";
-
+  
   if (req.session.usuario) {
     usuario = req.session.usuario;
   }
-
+  
   res.render('index', { title: 'Página Inicial', usuario, tema });
 });
 
@@ -34,6 +33,18 @@ router.post("/cadastro", function(req, res, next) {
 
   res.redirect('/feed');
 });
+
+router.get('/login', function(req, res, next) {
+  res.render('login', { title: 'login' });
+
+
+});
+router.post('/login', function(req, res, next) {
+  const { email, senha } = req.body
+  
+  
+    res.redirect('/');
+  });
 
 router.get("/logout", function(req, res) {
   req.session.destroy();
